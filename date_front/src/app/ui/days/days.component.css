@@ -1,0 +1,7 @@
+.btn-left,.btn-right {
+    height: 40px;
+    opacity: 0.5;
+  }
+  .btn-left:hover,.btn-right:hover {
+    opacity: 1;
+  }

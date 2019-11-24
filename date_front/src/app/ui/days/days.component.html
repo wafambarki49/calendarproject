@@ -1,0 +1,10 @@
+<div class="row">
+    <img class="col-1 px-0 btn-left my-2" src="assets/left-arrow.png" (click)="onPrevClicked()" />
+    <div class="col-10 d-flex justify-content-between my-2">
+        <div *ngFor="let day of days" class="d-flex flex-column mr-2">
+            <p class="my-0 text-center">{{ day.day_name }}</p>
+            <p class="my-0">{{ day.month_name }} {{ day.day_nbre }}</p>
+        </div>
+    </div>
+    <img class="col-1 px-0 btn-right my-2" src="assets/right-arrow.png" (click)="OnNextClicked()" />
+</div>

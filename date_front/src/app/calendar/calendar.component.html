@@ -1,52 +1,23 @@
 <div class="container d-flex flex-column shadow px-0">
-  <div class="text-center bg-primary py-2 px-5 w-100">
-    <h3 class="d-block text-white">Schedule your session!</h3>
-    <span class="d-block text-white">Timezone: Lisbon (+1)</span>
-  </div>
-  <div class="bg-white px-3">
-    <div *ngIf="loadingDays" class="d-flex justify-content-center">
-      <div class="spinner-border" role="status">
-        <span class="sr-only">Loading...</span>
-      </div>
+    <div class="text-center bg-primary py-2 px-5 w-100">
+        <h3 class="d-block text-white">Schedule your session!</h3>
+        <span class="d-block text-white">Timezone: Lisbon (+1)</span>
     </div>
-    <div class="row" *ngIf="!loadingDays">
-      <img class="col-1 px-0 btn-left my-2" src="assets/left-arrow.png" (click)="onPrevClicked()"/>
-      <div class="col-10 d-flex justify-content-between my-2">
-        <div *ngFor="let day of dayTimes" class="d-flex flex-column mr-2">
-              <p class="my-0 text-center">{{day.day_name}}</p>
-              <p class="my-0">{{day.month_name}} {{day.day_nbre}}</p>
+    <div class="bg-white px-3">
+        <div *ngIf="loadingDays" class="d-flex justify-content-center">
+            <div class="spinner-border" role="status">
+                <span class="sr-only">Loading...</span>
+            </div>
         </div>
-      </div>
-      <img class="col-1 px-0 btn-right my-2" src="assets/right-arrow.png" (click)="onNextClicked()"/>
+        <app-days (onNextClicked)="onArrowClicked($event)" (onPrevClicked)="onArrowClicked($event)" [days]="this.dayTimes" [nbreDays]="this.nbreDays.nbreDays" *ngIf="!loadingDays"></app-days>
     </div>
-
-  </div>
-
-
-
-
 </div>
 
-<div class="bg-white mt-3 shadow container">
+<div class="bg-white my-3 shadow container">
     <div *ngIf="loadingTimes" class="d-flex justify-content-center">
         <div class="spinner-border" role="status">
-          <span class="sr-only">Loading...</span>
+            <span class="sr-only">Loading...</span>
         </div>
-      </div>
-      <div *ngIf="!loadingTimes" class="container py-2">
-        <div *ngFor="let time of times.slice(0,lastIndex)" class="container">
-        <div class="d-flex justify-content-around mt-2">
-        <p>-</p>
-        <div class="timeBox py-2 pr-2 pl-4 w-25">{{time.time}}</div>
-        <div class="timeBox py-2 pr-2 pl-4 w-25">{{time.time}}</div>
-        <div class="timeBox py-2 pr-2 pl-4 w-25">{{time.time}}</div>
-        </div>
-        </div>
-        <div class="d-flex justify-content-around mt-2 container">
-            <p>-</p>
-            <div class="timeBox py-2 pr-2 pl-4 w-25" (click)="onMoreClicked()">More</div>
-            <div class="timeBox py-2 pr-2 pl-4 w-25" (click)="onMoreClicked()">More</div>
-            <div class="timeBox py-2 pr-2 pl-4 w-25" (click)="onMoreClicked()">More</div>
-            </div>
-      </div>
+    </div>
+    <app-times [times]="this.times" *ngIf="!loadingTimes"></app-times>
 </div>

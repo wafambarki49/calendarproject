@@ -17,7 +17,7 @@ export class CalendarComponent implements OnInit {
   dayTimes: DayTime[] = [];
   times: HourTime[] = [];
   nbreDays: NbreDays = { nbreDays: 0 };
-  lastIndex = 4;
+
 
   constructor(private dateApiService: DateApiService) { }
 
@@ -32,25 +32,16 @@ export class CalendarComponent implements OnInit {
     });
   }
 
-  onNextClicked() {
+  onArrowClicked(nDays) {
     this.loadingDays = true;
-    this.nbreDays.nbreDays++;
+    this.nbreDays.nbreDays = nDays; 
     this.dateApiService.getDays(this.nbreDays).subscribe((days: DayTime[]) => {
       this.dayTimes = days;
       this.loadingDays = false;
     });
   }
-  onPrevClicked() {
-    this.loadingDays = true;
-    this.nbreDays.nbreDays--;
-    this.dateApiService.getDays(this.nbreDays).subscribe((days: DayTime[]) => {
-      this.dayTimes = days;
-      this.loadingDays = false;
-    });
-  }
-  onMoreClicked() {
-    this.lastIndex += 4;
-  }
+ 
+  
 
 
 }

@@ -8,17 +8,24 @@ import { AppComponent } from './app.component';
 import { ProfileComponent } from './profile/profile.component';
 import { CalendarComponent } from './calendar/calendar.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import {MatCardModule} from '@angular/material/card';
+import { DaysComponent } from './ui/days/days.component';
+import { TimesComponent } from './ui/times/times.component';
+
 
 @NgModule({
   declarations: [
     AppComponent,
     ProfileComponent,
-    CalendarComponent
+    CalendarComponent,
+    DaysComponent,
+    TimesComponent
   ],
   imports: [
     BrowserModule,
     HttpClientModule,
-    BrowserAnimationsModule
+    BrowserAnimationsModule,
+    MatCardModule
   ],
   providers: [],
   bootstrap: [AppComponent]

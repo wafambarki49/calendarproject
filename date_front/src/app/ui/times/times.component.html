@@ -1,0 +1,16 @@
+<div class="container py-2">
+    <div *ngFor="let time of times.slice(0,nbreTimes)" class="container">
+        <div class="d-flex justify-content-around mt-2">
+            <p>-</p>
+            <div class="timeBox text-center py-2 w-25">{{time.time}}</div>
+            <div class="timeBox text-center py-2 w-25">{{time.time}}</div>
+            <div class="timeBox text-center py-2 w-25">{{time.time}}</div>
+        </div>
+    </div>
+    <div class="d-flex justify-content-around mt-2 container">
+        <p>-</p>
+        <div class="timeBox text-center py-2 w-25" (click)="onMoreClicked()">More</div>
+        <div class="timeBox text-center py-2 w-25" (click)="onMoreClicked()">More</div>
+        <div class="timeBox text-center py-2 w-25" (click)="onMoreClicked()">More</div>
+    </div>
+</div>
